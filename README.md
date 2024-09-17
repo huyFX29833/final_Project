@@ -2,8 +2,8 @@
 
 ## 1- Xác định bài toán, các yêu cầu nghiệp vụ và các chỉ số cần báo cáo
 ### 1.1- Bài toán cần giải quyết:
-Phân tích tình hình kinh doanh của quán cà phê, với mong muốn xác định hành vi, thói quen mua sắm của khách hàng.
-Căn cứ hiện trạng bán hàng để hiệu quả kinh doanh để đưa ra các chiến lược kinh doanh, tiếp thị hiệu quả, nâng cao sự hài lòng của khách hàng.
+Phân tích tình hình kinh doanh của quán cà phê, với mong muốn xác định hành vi tệp khách hàng và thói quen mua sắm của khách hàng.
+Căn cứ hiện trạng bán hàng để hiệu quả kinh doanh để đưa ra các chiến lược kinh doanh, tiếp thị hiệu quả, thu hút thêm khách hàng và nâng cao sự hài lòng của khách hàng.
 ### 1.2- Yêu cầu nghiệp vụ:
 - Phân tích hành vi, thói quen mua sắm của khách hàng. Nhận diện các nhóm đối tượng khách hàng.
 - Đánh giá doanh thu và khả năng tiêu thụ của các loại sản phẩm.
@@ -15,6 +15,10 @@ Căn cứ hiện trạng bán hàng để hiệu quả kinh doanh để đưa ra
 - Phân khúc khách hàng, hành vi - thói quen mua sắm.
 ## 2- Thu thập dữ liệu
 - `Coffee shop sample data` từ [Kaggle](https://www.kaggle.com/datasets/ylchang/coffee-shop-sample-data-1113/data)
+  <br /> Hạn chế của bộ dữ liệu: Giới hạn về khoảng thời gian (chỉ trong 1 tháng).
+  <br /> Thời gian giao dịch, `transaction_date` và `transaction_time` không hợp lý, cùng một ngày lại có vài trăm giao dịch mà chỉ cách nhau vài giây hoặc vài phút, của cùng một khách hàng `customer_id`
 - `Coffee shop sales` từ [Kaggle](https://www.kaggle.com/datasets/ahmedabbas757/coffee-sales)
+  <br /> Hạn chế của bộ dữ liệu: Giới hạn về số lượng bảng dữ liệu.
 - `Coffee shop Sales/ Inventory/ Staff` từ [Kaggle](https://www.kaggle.com/datasets/viramatv/coffee-shop-data)
+  <br /> Hạn chế của bộ dữ liệu: Giới hạn về khoảng thời gian và số lượng dòng.
 ## 3- Data Warehouse - ETL
