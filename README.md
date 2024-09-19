@@ -22,3 +22,8 @@ Căn cứ hiện trạng bán hàng để hiệu quả kinh doanh để đưa ra
 - `Coffee shop Sales/ Inventory/ Staff` từ [Kaggle](https://www.kaggle.com/datasets/viramatv/coffee-shop-data)
   <br /> Hạn chế của bộ dữ liệu: Giới hạn về khoảng thời gian và số lượng dòng.
 ## 3- Data Warehouse - ETL
+- Mặt hạn chế của bộ dữ liệu: khoảng thời gian ngắn (chỉ 1 tháng)
+  <br /> và không có mô tả các cột dữ liệu: không hiểu được cột `order_no` và `line_item_id` trong bảng `sales_receipts`
+- Cập nhật bộ dữ liệu, đã tìm thấy trang download dữ liệu từ nguồn IBM: [link](https://accelerator.ca.analytics.ibm.com/bi/?perspective=authoring&pathRef=.public_folders%2FIBM%2BAccelerator%2BCatalog%2FContent%2FDAT00065&id=i7B18B79B67E44BBE94A115C21EDF4669&objRef=i7B18B79B67E44BBE94A115C21EDF4669&action=run&format=HTML&cmPropStr=%7B%22id%22%3A%22i7B18B79B67E44BBE94A115C21EDF4669%22%2C%22type%22%3A%22reportView%22%2C%22defaultName%22%3A%22DAT00065%22%2C%22permissions%22%3A%5B%22execute%22%2C%22read%22%2C%22traverse%22%5D%7D)
+  <br /> có bổ sung thêm 1 tháng, và đổi tên cột dữ liệu `order` thành `order_no`
+- Hướng xử lý: bỏ bớt các cột dữ liệu không nắm thông tin, thay đổi các chỉ số phân tích từ tháng thành ngày (churn rate)
