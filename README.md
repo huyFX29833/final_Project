@@ -21,9 +21,35 @@ Căn cứ hiện trạng bán hàng để hiệu quả kinh doanh để đưa ra
   <br /> Hạn chế của bộ dữ liệu: Giới hạn về số lượng bảng dữ liệu.
 - `Coffee shop Sales/ Inventory/ Staff` từ [Kaggle](https://www.kaggle.com/datasets/viramatv/coffee-shop-data)
   <br /> Hạn chế của bộ dữ liệu: Giới hạn về khoảng thời gian và số lượng dòng.
+
+**Cập nhật bộ dữ liệu:** thông qua trang nguồn của bộ dữ liệu được nêu trong mô tả, bộ dữ liệu trên trang gốc (IBM) đã được cập nhật mới hơn, bộ dữ liệu trải dài 2 tháng và cũng có một số thay đổi so với bộ dữ liệu cũ. Trong đó, có thể kể tới việc thay đổi cách đánh số transaction_id (cách cũ đánh số theo từng cửa hàng và ngày tháng, cách mới đánh số theo giao dịch)
+<br /> Một số cập nhật:
+<br /> - Thời lượng: 1 tháng -> 2 tháng
+<br /> - Đánh số transaction_id: (theo transaction_date + sales_outlet_id) -> (theo transaction_date)
+<br /> - Đổi tên cột: (trong sales_receipts) cột orders -> cột orders_number
+
+[Bộ dữ liệu được cập nhật lần cuối ngày 01 tháng 05 năm 2020](https://accelerator.ca.analytics.ibm.com/bi/?perspective=authoring&pathRef=.public_folders%2FIBM%2BAccelerator%2BCatalog%2FContent%2FDAT00065&id=i7B18B79B67E44BBE94A115C21EDF4669&objRef=i7B18B79B67E44BBE94A115C21EDF4669&action=run&format=HTML&cmPropStr=%7B%22id%22%3A%22i7B18B79B67E44BBE94A115C21EDF4669%22%2C%22type%22%3A%22reportView%22%2C%22defaultName%22%3A%22DAT00065%22%2C%22permissions%22%3A%5B%22execute%22%2C%22read%22%2C%22traverse%22%5D%7D)
+
+### 2.2- Làm sạch dữ liệu
+- Do tính chất của Dự án này là rèn luyện kỹ năng với các công cụ, ứng dụng khác nhau đã được học và vận dụng chúng vào các bài toán thực tế. Trong đó, SQL (và SSIS) được sử dụng để xây dựng Data Warehouse và ETL để truyền dữ liệu vào bộ lưu trữ. Power BI được sử dụng để xây dựng dashboard. Nên trong phần làm sạch dữ liệu này, Python và Excel sẽ được ưu tiên sử dụng để vận dụng kiến thức đã được học vào Dự án này.
+- PYTHON
+- Excel:
+#### 2.2.1- Excel
+- Trong Excel, sử dụng `Get & Transform Data` để nạp dữ liệu vào từ các tệp nguồn bằng `From Text/CSV`
+- Sau khi nạp dữ liệu, kiểm tra:
+  - header của các bảng
+  - kiểu dữ liệu của các cột
+  - giá trị Null
+  - xóa các dòng lặp (duplicate)
+#### 2.2.2- Python
+- Sử dụng thư viện pandas để nạp dữ liệu từ nguồn csv
+- Sau khi nạp dữ liệu, kiểm tra:
+  - Giá trị Null tại các dòng
+  - Kiểu dữ liệu của các cột
+  - Các dòng lặp
+- Kiểm tra sâu hơn,
+  - So sánh các cột product_id và cột unit_price trong bảng sales_receipts với cột product_id và cột current_retail_price trong bảng products
+
 ## 3- Data Warehouse - ETL
-- Mặt hạn chế của bộ dữ liệu: khoảng thời gian ngắn (chỉ 1 tháng)
-  <br /> và không có mô tả các cột dữ liệu: không hiểu được cột `order_no` và `line_item_id` trong bảng `sales_receipts`
-- Cập nhật bộ dữ liệu, đã tìm thấy trang download dữ liệu từ nguồn IBM: [link](https://accelerator.ca.analytics.ibm.com/bi/?perspective=authoring&pathRef=.public_folders%2FIBM%2BAccelerator%2BCatalog%2FContent%2FDAT00065&id=i7B18B79B67E44BBE94A115C21EDF4669&objRef=i7B18B79B67E44BBE94A115C21EDF4669&action=run&format=HTML&cmPropStr=%7B%22id%22%3A%22i7B18B79B67E44BBE94A115C21EDF4669%22%2C%22type%22%3A%22reportView%22%2C%22defaultName%22%3A%22DAT00065%22%2C%22permissions%22%3A%5B%22execute%22%2C%22read%22%2C%22traverse%22%5D%7D)
-  <br /> có bổ sung thêm 1 tháng, và đổi tên cột dữ liệu `order` thành `order_no`
+
 - Hướng xử lý: bỏ bớt các cột dữ liệu không nắm thông tin, thay đổi các chỉ số phân tích từ tháng thành ngày (churn rate)
