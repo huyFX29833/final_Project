@@ -41,6 +41,9 @@ Căn cứ hiện trạng bán hàng để hiệu quả kinh doanh để đưa ra
   - kiểu dữ liệu của các cột
   - giá trị Null
   - xóa các dòng lặp (duplicate)
+**Trong excel kết nối các bảng thế nào nhỉ? muốn tạo pivot theo product_id từ bảng Sales, và unit_price từ Sales, sau đó so sánh với current_retail_price ở bảng Product**
+
+
 #### 2.2.2- Python
 - Sử dụng thư viện pandas để nạp dữ liệu từ nguồn csv
 - Sau khi nạp dữ liệu, kiểm tra:
